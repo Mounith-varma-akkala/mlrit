@@ -10,8 +10,7 @@ export function Bento() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
         {/* Apply — Hero Tile */}
         <Reveal className="md:col-span-4 md:row-span-2">
-          <EnrollmentDialog>
-            <button className="group relative w-full overflow-hidden rounded-3xl text-left text-white shadow-lift transition-transform active:scale-[0.992] md:h-full">
+            <a href="https://mlrit-admissions.vercel.app/" target="_blank" rel="noopener noreferrer" className="group relative w-full overflow-hidden rounded-3xl text-left text-white shadow-lift transition-transform active:scale-[0.992] md:h-full block">
               <div className="absolute inset-0 -z-10 bg-[radial-gradient(120%_100%_at_100%_0%,rgba(255,255,255,0.18)_0%,transparent_50%),radial-gradient(80%_80%_at_0%_100%,rgba(214,98,33,0.45)_0%,transparent_60%),linear-gradient(135deg,#0E2A0A_0%,#1F5A14_45%,#358F24_100%)]" />
               <div className="flex min-h-[230px] flex-col justify-between gap-6 p-6 md:min-h-full md:p-9">
                 <div>
@@ -33,8 +32,7 @@ export function Bento() {
                   Start now <ArrowRight className="h-4 w-4" />
                 </span>
               </div>
-            </button>
-          </EnrollmentDialog>
+            </a>
         </Reveal>
 
         {/* Brochure */}
