@@ -38,6 +38,7 @@ export function Footer() {
           <div className="text-[12px] text-muted-foreground md:text-right">
             <div className="font-semibold text-foreground">Admissions Cell · 2026</div>
             © {new Date().getFullYear()} MLR Institute of Technology
+            <div className="mt-1.5 text-[12.5px] font-medium text-foreground/70">Implemented by the students of MLRIT</div>
           </div>
         </div>
       </div>

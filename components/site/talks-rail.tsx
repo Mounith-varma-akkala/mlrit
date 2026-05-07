@@ -2,34 +2,26 @@ import Image from "next/image";
 import { Play } from "lucide-react";
 import { VideoDialog } from "./video-dialog";
 
+const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+
 const talks = [
   {
-    id: "t4xFcZMuqnM",
-    by: "Dr. V. Radhika Devi · Principal",
-    title: "Welcome to the MLR family",
+    cloudinaryId: "av2_v9ljvd",
+    by: "Dasam Pranay · Aeronautical Engineering",
+    title: "My journey at MLRIT",
     duration: "5:24",
-    image: "/campus-side.jpg",
   },
   {
-    id: "t4xFcZMuqnM",
-    by: "Head of CSE · Faculty",
-    title: "Programs, placements & research",
+    cloudinaryId: "av1_nsjnjc",
+    by: "Sathvika · CS-IT",
+    title: "What the college experience is really like",
     duration: "7:11",
-    image: "/campus-front.jpg",
   },
   {
-    id: "t4xFcZMuqnM",
-    by: "Sneha · Class of '23 · Microsoft",
-    title: "What life at MLR taught me",
+    cloudinaryId: "av3_eueuw0",
+    by: "Gopi Pavani · Aero · 2025",
+    title: "Placements, academics & what I learned",
     duration: "4:02",
-    image: "/campus-entrance.jpg",
-  },
-  {
-    id: "t4xFcZMuqnM",
-    by: "Parent Testimonial",
-    title: "Why we chose MLR",
-    duration: "3:46",
-    image: "/campus-side.jpg",
   },
 ];
 
@@ -51,14 +43,14 @@ export function TalksRail() {
         {talks.map((t, i) => (
           <VideoDialog
             key={i}
-            videoId={t.id}
+            cloudinaryId={t.cloudinaryId}
             title={t.title}
             description={t.by}
           >
             <button className="group w-[78%] flex-none snap-start overflow-hidden rounded-3xl bg-card text-left shadow-soft transition-transform active:scale-[0.992] md:w-[calc((100%-2rem)/3)]">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src={t.image}
+                  src={`https://res.cloudinary.com/${CLOUD}/video/upload/so_auto/${t.cloudinaryId}.jpg`}
                   alt={t.title}
                   fill
                   sizes="(min-width:768px) 33vw, 80vw"
