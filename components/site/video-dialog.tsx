@@ -32,20 +32,51 @@ export function VideoDialog({
             data-[state=open]:animate-in data-[state=closed]:animate-out
             data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 duration-300"
           style={{
-            background: "rgba(0,0,0,0.90)",
+            background: "rgba(4,12,4,0.88)",
             backdropFilter: "blur(6px)",
             WebkitBackdropFilter: "blur(6px)",
           }}
         >
-          {/* Animated conic gradient — rotates slowly around all edges */}
-          <div
-            className="pointer-events-none absolute inset-[-60%]"
-            style={{
-              background:
-                "conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(200,70,0,0.13) 40deg, transparent 80deg, rgba(200,70,0,0.07) 160deg, transparent 200deg, rgba(200,70,0,0.13) 280deg, transparent 320deg, rgba(200,70,0,0.07) 340deg, transparent 360deg)",
-              animation: "gradient-spin 28s linear infinite",
-            }}
-          />
+          {/* Aurora background — layered drifting orbs */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ animation: "aurora-hue 12s ease-in-out infinite" }}>
+            {/* Deep green base orb — top-left */}
+            <div className="absolute" style={{
+              width: "70vw", height: "70vw", maxWidth: 900, maxHeight: 900,
+              top: "-20%", left: "-15%",
+              background: "radial-gradient(ellipse at center, rgba(30,120,20,0.28) 0%, rgba(10,60,10,0.08) 55%, transparent 75%)",
+              animation: "orb-drift-1 18s ease-in-out infinite, orb-pulse 7s ease-in-out infinite",
+              filter: "blur(48px)",
+            }} />
+            {/* Amber/orange accent — bottom-right */}
+            <div className="absolute" style={{
+              width: "55vw", height: "55vw", maxWidth: 750, maxHeight: 750,
+              bottom: "-25%", right: "-10%",
+              background: "radial-gradient(ellipse at center, rgba(200,80,10,0.28) 0%, rgba(160,50,0,0.08) 50%, transparent 70%)",
+              animation: "orb-drift-2 22s ease-in-out infinite, orb-pulse 9s ease-in-out infinite 1s",
+              filter: "blur(56px)",
+            }} />
+            {/* Bright green highlight — top-right */}
+            <div className="absolute" style={{
+              width: "40vw", height: "40vw", maxWidth: 600, maxHeight: 600,
+              top: "-10%", right: "5%",
+              background: "radial-gradient(ellipse at center, rgba(60,200,40,0.13) 0%, rgba(20,120,10,0.04) 50%, transparent 70%)",
+              animation: "orb-drift-3 15s ease-in-out infinite, orb-pulse 6s ease-in-out infinite 2s",
+              filter: "blur(40px)",
+            }} />
+            {/* Warm ember — bottom-left */}
+            <div className="absolute" style={{
+              width: "35vw", height: "35vw", maxWidth: 500, maxHeight: 500,
+              bottom: "0%", left: "5%",
+              background: "radial-gradient(ellipse at center, rgba(230,120,0,0.16) 0%, rgba(180,60,0,0.05) 50%, transparent 70%)",
+              animation: "orb-drift-1 25s ease-in-out infinite reverse, orb-pulse 8s ease-in-out infinite 3s",
+              filter: "blur(44px)",
+            }} />
+            {/* Spinning conic sweep on top for edge shimmer */}
+            <div className="absolute inset-[-40%]" style={{
+              background: "conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(80,200,50,0.03) 60deg, transparent 120deg, rgba(200,90,0,0.03) 200deg, transparent 260deg, rgba(60,180,30,0.02) 320deg, transparent 360deg)",
+              animation: "gradient-spin 32s linear infinite",
+            }} />
+          </div>
           {/* Floating glass panel */}
           <DialogPrimitive.Content
             className="
