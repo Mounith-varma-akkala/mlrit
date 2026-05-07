@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./reveal";
 
-const chips = ["NAAC A++", "NBA Accredited", "Hyderabad", "Estd. 2005"];
+const chips = ["NAAC A", "NBA Accredited", "Hyderabad", "Estd. 2005"];
 
 export function Hero() {
   return (
