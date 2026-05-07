@@ -63,6 +63,11 @@
   body { @apply bg-background text-foreground font-sans; font-feature-settings: "ss01","cv11"; }
 }
 
+@keyframes gradient-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
