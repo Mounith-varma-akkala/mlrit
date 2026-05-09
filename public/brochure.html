@@ -1,0 +1,3289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLR Institute of Technology · Prospectus 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ─────────────────────────────────────────
+     DESIGN TOKENS — MLRIT institutional system
+  ───────────────────────────────────────── */
+  :root {
+    /* TYPE */
+    --sans:  'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --serif: 'Source Serif 4', Georgia, serif;     /* one-time accent only */
+    --mono:  'JetBrains Mono', ui-monospace, monospace;
+
+    /* GREEN — institutional forest */
+    --green:        #2E7D32;
+    --green-bright: #4FAF3D;
+    --green-mid:    #3F9A30;
+    --green-deep:   #1F5C24;
+    --green-darker: #154418;
+    --green-light:  #DDEFD3;
+    --green-soft:   #EFF7EB;
+    --green-tint:   #F4FAF1;
+
+    /* ORANGE — vibrant brand */
+    --orange:       #E97724;
+    --orange-bright:#F08A35;
+    --orange-deep:  #C45A1A;
+    --orange-darker:#9A4413;
+    --orange-light: #FFE0C7;
+    --orange-soft:  #FFF1E5;
+    --orange-tint:  #FFF8F1;
+
+    /* INK & GRAY */
+    --ink:        #1A2A3A;
+    --ink-soft:   #2D3D4D;
+    --gray-800:   #3A4A5A;
+    --gray-700:   #4A5A6A;
+    --gray-500:   #7A8A9A;
+    --gray-400:   #9CA8B6;
+    --gray-300:   #C5CCD3;
+    --gray-200:   #DFE4EA;
+    --gray-100:   #EEF1F5;
+    --gray-50:    #F7F9FB;
+
+    /* PAPER */
+    --paper:      #FFFFFF;
+    --cream:      #FBF9F4;     /* warm substrate */
+    --cream-2:    #F6F2E8;
+
+    /* RED for accreditation badges */
+    --red:        #C0392B;
+    --navy:       #14233D;
+
+    /* RADIUS */
+    --r-xs: 4px;
+    --r-sm: 6px;
+    --r:    8px;
+    --r-md: 12px;
+    --r-lg: 18px;
+  }
+
+  *      { margin: 0; padding: 0; box-sizing: border-box; }
+  html   { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--ink);
+    background: #1c1c1c;
+    font-size: 13.5px;
+    line-height: 1.55;
+    padding: 32px 0 48px;
+    letter-spacing: -0.005em;
+  }
+
+  /* ─────────────────────────────────────────
+     PAGE — A4 (794 × 1123 @ 96 dpi)
+  ───────────────────────────────────────── */
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 0 auto 28px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);                 /* warm institutional substrate */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.30);
+    page-break-after: always;
+    color: var(--ink);
+  }
+  .page.white  { background: var(--paper); }
+  .page.green  { background: linear-gradient(135deg, #5BBE45 0%, #3F9A30 35%, #2E7D32 70%, #1F5C24 100%); color: #fff; }
+  .page.orange { background: linear-gradient(155deg, #F08A35 0%, #E97724 50%, #C45A1A 100%); color: #fff; }
+
+  /* ─────────────────────────────────────────
+     PAGE BODY
+  ───────────────────────────────────────── */
+  .body {
+    padding: 36px 48px 44px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─────────────────────────────────────────
+     BRUSHSTROKE PAGE BANNER — the signature
+     MLRIT decorative device
+  ───────────────────────────────────────── */
+  .brush-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    width: fit-content;
+    min-width: 280px;
+    padding: 14px 56px;
+    background: linear-gradient(180deg, #F08A35 0%, #E97724 60%, #D16216 100%);
+    border: 2px solid var(--orange-deep);
+    border-radius: 28px / 22px;
+    color: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.25),
+      inset 0 -2px 6px rgba(154,68,19,0.4),
+      0 4px 14px rgba(196,90,26,0.20);
+  }
+  .brush-banner h2 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.012em;
+    color: #fff;
+    text-align: center;
+  }
+  /* the brush "flicks" extending out from the banner sides */
+  .brush-banner::before,
+  .brush-banner::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  .brush-banner::before {
+    left: -56px;
+    top: 50%;
+    width: 80px;
+    height: 36px;
+    background:
+      linear-gradient(180deg, transparent 18%, var(--orange) 22%, var(--orange-deep) 28%, transparent 32%) 0 0 / 100% 4px no-repeat,
+      linear-gradient(180deg, transparent 48%, var(--orange-deep) 52%, var(--orange) 56%, transparent 60%) 0 0 / 100% 4px no-repeat,
+      linear-gradient(180deg, transparent 75%, var(--orange) 78%, var(--orange-deep) 82%, transparent 86%) 0 0 / 100% 4px no-repeat;
+    transform: translateY(-50%);
+    border-radius: 4px;
+  }
+  .brush-banner::after {
+    right: -56px;
+    top: 50%;
+    width: 80px;
+    height: 36px;
+    background:
+      linear-gradient(180deg, transparent 18%, var(--orange-deep) 22%, var(--orange) 28%, transparent 32%) 0 0 / 100% 4px no-repeat,
+      linear-gradient(180deg, transparent 48%, var(--orange) 52%, var(--orange-deep) 56%, transparent 60%) 0 0 / 100% 4px no-repeat,
+      linear-gradient(180deg, transparent 75%, var(--orange-deep) 78%, var(--orange) 82%, transparent 86%) 0 0 / 100% 4px no-repeat;
+    transform: translateY(-50%);
+    border-radius: 4px;
+  }
+
+  /* alternate brush banner — flicks above and below for variety */
+  .brush-banner.tb::before,
+  .brush-banner.tb::after { left: 0; right: 0; width: auto; }
+  .brush-banner.tb::before { top: -8px; height: 4px; transform: none; background: linear-gradient(90deg, transparent 5%, var(--orange-deep) 12%, transparent 18%, var(--orange) 35%, transparent 45%, var(--orange-deep) 60%, transparent 70%); }
+  .brush-banner.tb::after  { top: auto; bottom: -8px; height: 4px; transform: none; background: linear-gradient(90deg, transparent 8%, var(--orange) 18%, transparent 28%, var(--orange-deep) 45%, transparent 55%, var(--orange) 70%, transparent 82%); }
+
+  /* ─────────────────────────────────────────
+     DARK GREEN PILL — section/category labels
+  ───────────────────────────────────────── */
+  .pill-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-deep);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.10),
+      inset 0 -2px 4px rgba(0,0,0,0.20);
+  }
+  .pill-tab.orange { background: var(--orange); }
+
+  .section-line {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: center;
+    margin: 26px 0 14px;
+  }
+  .section-line .pill-tab { box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); }
+  .section-line .rule {
+    height: 2px;
+    background: var(--green-deep);
+    border-radius: 1px;
+  }
+
+  /* ─────────────────────────────────────────
+     DOTTED SEPARATOR — orange/green alternating dots
+  ───────────────────────────────────────── */
+  .dotted-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .dotted-sep::before,
+  .dotted-sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--gray-300) 0, var(--gray-300) 3px, transparent 3px, transparent 8px);
+  }
+  .dotted-sep .label {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 0 12px;
+    position: relative;
+  }
+  .dotted-sep .label::before,
+  .dotted-sep .label::after {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .dotted-sep .label::before { left: -2px; background: var(--orange); }
+  .dotted-sep .label::after  { right: -2px; background: var(--orange); }
+
+  /* ─────────────────────────────────────────
+     CIRCLE ICONS — filled green & orange
+  ───────────────────────────────────────── */
+  .circ-ico {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      inset 0 -2px 4px rgba(0,0,0,0.25);
+  }
+  .circ-ico.orange { background: var(--orange); }
+  .circ-ico.lg { width: 56px; height: 56px; font-size: 24px; }
+  .circ-ico.sm { width: 32px; height: 32px; font-size: 14px; }
+
+  /* numbered green circles */
+  .num-circ {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--green-bright);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.2),
+      inset 0 -2px 4px rgba(31,92,36,0.35);
+  }
+  .num-circ.orange { background: var(--orange); }
+
+  /* ─────────────────────────────────────────
+     STAT NUMBER — big bold orange
+  ───────────────────────────────────────── */
+  .big-num {
+    font-family: var(--sans);
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .big-num.green { color: var(--green); }
+  .big-num.size-xl   { font-size: 64px; }
+  .big-num.size-lg   { font-size: 48px; }
+  .big-num.size-md   { font-size: 36px; }
+  .big-num.size-sm   { font-size: 28px; }
+  .big-num .unit {
+    font-size: 0.45em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-left: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─────────────────────────────────────────
+     CARD SYSTEM — clean, institutional
+  ───────────────────────────────────────── */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .card.feat {
+    background: var(--green-soft);
+    border-color: var(--green-light);
+  }
+  .card.orange {
+    background: var(--orange-tint);
+    border-color: var(--orange-light);
+  }
+
+  /* card with a green dotted top accent like in the original */
+  .card.dotted-top {
+    border-top: 2px dotted var(--green-deep);
+  }
+
+  /* ─────────────────────────────────────────
+     RUNNING FOOT — page indicator (subtle, institutional)
+  ───────────────────────────────────────── */
+  .page-foot {
+    position: absolute;
+    bottom: 18px;
+    left: 48px;
+    right: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    z-index: 3;
+  }
+  .page-foot b { color: var(--green-deep); font-weight: 600; }
+  .page.green .page-foot, .page.orange .page-foot { color: rgba(255,255,255,0.7); }
+  .page.green .page-foot b, .page.orange .page-foot b { color: #FFE9A8; }
+
+  /* ─────────────────────────────────────────
+     COMMON HEADINGS
+  ───────────────────────────────────────── */
+  .h-mega {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    color: var(--green-deep);
+  }
+  .h-page {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .h-page .or { color: var(--orange); }
+  .h-page .gn { color: var(--green); }
+
+  .h-section {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+  }
+  .h-card {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .h-card.green { color: var(--green-deep); }
+  .h-card.orange { color: var(--orange-deep); }
+
+  .lede {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-700);
+    max-width: 580px;
+    letter-spacing: -0.005em;
+  }
+  .lede b { color: var(--ink); font-weight: 700; }
+
+  .copy   { font-size: 12.5px; line-height: 1.6; color: var(--gray-700); }
+  .copy b { color: var(--ink); font-weight: 600; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+  }
+  .label.green { color: var(--green-deep); }
+  .label.orange { color: var(--orange-deep); }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 1 — COVER
+  ═══════════════════════════════════════════════════════════════ */
+  #cover {
+    background: linear-gradient(135deg, #4FAF3D 0%, #3F9A30 30%, #2E7D32 65%, #1F5C24 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  /* radial accent glow */
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: -300px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(91,190,69,0.45) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  #cover::after {
+    content: '';
+    position: absolute;
+    bottom: -350px; left: -250px;
+    width: 750px; height: 750px;
+    background: radial-gradient(circle, rgba(21,68,24,0.55) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* the helix/ribbon graphic — built with SVG below, this just positions it */
+  #cover .ribbons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #cover .ribbons svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cover-top {
+    padding: 44px 48px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: relative;
+    z-index: 3;
+  }
+  .cover-mark {
+    text-align: right;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .cover-mark .crest {
+    width: 64px;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover-mark .crest img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .cover-mark .name {
+    text-align: left;
+  }
+  .cover-mark .name .nm {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
+  .cover-mark .name .sub {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.92);
+    margin-top: 4px;
+  }
+  .cover-mark .programs {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.92);
+    margin-top: 14px;
+    text-align: left;
+    max-width: 230px;
+  }
+  .cover-mark .programs b { color: #fff; font-weight: 700; }
+
+  .cover-mid {
+    flex: 1;
+    padding: 0 48px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .cover-bottom {
+    padding: 0 48px 38px;
+    position: relative;
+    z-index: 3;
+  }
+  .cover-prospect {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .cover-prospect span {
+    font-weight: 800;
+    color: #FFE9A8;
+  }
+
+  /* ACCREDITATION BADGES ROW */
+  .accred-row {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    align-items: center;
+  }
+  .accred-card {
+    background: #fff;
+    border-radius: var(--r);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    min-height: 60px;
+  }
+  .accred-card .seal {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: var(--green-bright);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .accred-card .seal svg { width: 26px; height: 26px; }
+  .accred-card .info {
+    line-height: 1;
+  }
+  .accred-card .info .yr {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--orange);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .accred-card .info .lab {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+
+  /* NAAC card */
+  .accred-card.naac { padding: 8px 14px; }
+  .accred-card.naac .naac-mark {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--green-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .accred-card.naac .grade {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--red);
+    border-left: 2px solid var(--gray-300);
+    padding-left: 8px;
+    margin-left: 4px;
+    line-height: 1;
+  }
+  .accred-card.naac .lab {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 4px;
+  }
+
+  /* NIRF card */
+  .accred-card.nirf {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+  }
+  .accred-card.nirf .nirf-mark {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--orange);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .accred-card.nirf .top {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .accred-card.nirf .lab {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-top: 3px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 2 — WELCOME
+  ═══════════════════════════════════════════════════════════════ */
+  .welcome-h {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+  }
+  /* the serif "MLR" — single decorative typographic accent */
+  .mlr-serif {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 76px;
+    color: var(--orange);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-right: 8px;
+    vertical-align: -2px;
+  }
+  .welcome-h.row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 12px;
+    font-size: 50px;
+  }
+  .welcome-h.row .gn {
+    color: var(--green-deep);
+    font-weight: 800;
+  }
+
+  .welcome-quote {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--green);
+    letter-spacing: -0.012em;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 3 — WHY MLRIT (10 numbered reasons)
+  ═══════════════════════════════════════════════════════════════ */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+  }
+  .why-item {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--gray-300);
+  }
+  .why-item .nm {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--green);
+  }
+  .why-item:nth-child(even) .nm { color: var(--orange); }
+  .why-item .nm::after {
+    content: '.';
+    color: var(--ink);
+    font-weight: 800;
+  }
+  .why-item .txt {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: var(--ink);
+    padding-top: 6px;
+    letter-spacing: -0.005em;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 4 — COURSES OFFERED
+  ═══════════════════════════════════════════════════════════════ */
+  .course-block {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 14px 22px 18px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .course-block .pill-tab {
+    position: absolute;
+    top: -16px;
+    left: 18px;
+  }
+  .course-block ul {
+    list-style: none;
+    margin-top: 12px;
+    column-count: 2;
+    column-gap: 28px;
+  }
+  .course-block ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    break-inside: avoid;
+  }
+  .course-block ul li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+  .course-block ul li:nth-child(even)::before { background: var(--green); }
+  .course-block ul.single { column-count: 1; }
+
+  .course-block .meta-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted var(--gray-300);
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+  }
+  .course-block .meta-row b { color: var(--orange-deep); font-weight: 700; }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 5 — HALLMARKS OF DISTINCTION
+  ═══════════════════════════════════════════════════════════════ */
+  .hallmark-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 220px;
+    gap: 22px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .hallmark-row:first-child { padding-top: 8px; }
+  .hallmark-row:last-child  { border-bottom: 0; }
+  .hallmark-row .star {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.25),
+      inset 0 -2px 4px rgba(154,68,19,0.4);
+  }
+  .hallmark-row:nth-child(even) .star { background: linear-gradient(135deg, var(--green-bright), var(--green-deep)); }
+  .hallmark-row .info .h {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+    margin-bottom: 3px;
+  }
+  .hallmark-row .info .d {
+    font-size: 12.5px;
+    color: var(--gray-700);
+    line-height: 1.45;
+  }
+  .hallmark-row .agency {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r);
+    padding: 8px 14px;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .hallmark-row .agency b { display: block; color: var(--orange-deep); font-size: 13px; font-weight: 800; letter-spacing: -0.01em; }
+  .hallmark-row .agency.green b { color: var(--green-deep); }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 6 — NAVARATNA WHEEL
+  ═══════════════════════════════════════════════════════════════ */
+  .navaratna-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    margin: 6px 0 18px;
+  }
+  .nava-svg-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+  .nava-svg-wrap svg { width: 100%; max-width: 360px; height: auto; }
+  .nava-points {
+    display: grid;
+    gap: 10px;
+  }
+  .nava-points .pt {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.45;
+  }
+  .nava-points .pt .dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    box-shadow: inset 0 -2px 3px rgba(0,0,0,0.22);
+  }
+  .nava-points .pt b {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: -0.005em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 7 — PLACEMENT OPPORTUNITIES (recruiter wall)
+  ═══════════════════════════════════════════════════════════════ */
+  .placements-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  .placement-headline {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    margin-bottom: 12px;
+  }
+  .placement-headline .or { color: var(--orange); }
+  .placement-headline .gn { color: var(--ink); }
+
+  .stats-block {
+    margin-top: 14px;
+  }
+  .stats-block .row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .stats-block .row .v {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--orange);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .stats-block .row .d {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* 80% Placements seal */
+  .seal-80 {
+    width: 200px;
+    margin: 18px 0;
+    position: relative;
+  }
+
+  /* Recruiter logo wall — clean, structured */
+  .recruiter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .recruiter-cell {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-sm);
+    padding: 10px 12px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 8 — PLACEMENTS THAT STANDOUT
+  ═══════════════════════════════════════════════════════════════ */
+  .hero-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .hero-stat-row .stat {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 8px;
+    border-right: 1px solid var(--gray-200);
+  }
+  .hero-stat-row .stat:last-child { border-right: 0; }
+  .hero-stat-row .stat .ico-bx {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.25);
+  }
+  .hero-stat-row .stat:nth-child(2) .ico-bx { background: var(--orange); }
+  .hero-stat-row .stat .v {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .hero-stat-row .stat .v .u {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 700;
+    margin-left: 3px;
+  }
+  .hero-stat-row .stat .lb {
+    font-size: 11px;
+    color: var(--gray-700);
+    margin-top: 2px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  /* Top recruiters by selects — 5 cards */
+  .top-recruiters {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .top-recruiters .tr {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-top: 2px dotted var(--green-deep);
+    border-radius: var(--r-sm);
+    padding: 12px 10px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .top-recruiters .tr .co {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-recruiters .tr .ct {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .top-recruiters .tr .lb {
+    font-size: 10px;
+    color: var(--gray-500);
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  /* Top offers — 3 cards */
+  .top-offers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .top-offers .of {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-sm);
+    padding: 14px 12px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .top-offers .of .co {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.012em;
+  }
+  .top-offers .of .of-line {
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--gray-300) 0, var(--gray-300) 3px, transparent 3px, transparent 6px);
+    margin: 6px 20px;
+  }
+  .top-offers .of .pkg {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--orange);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-top: 6px;
+  }
+  .top-offers .of .pkg .u {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* Salary distribution */
+  .sal-dist {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .sal-dist-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 12px;
+  }
+  .sal-dist-row .b {
+    text-align: center;
+    padding: 0 6px;
+    border-right: 1px dotted var(--gray-300);
+  }
+  .sal-dist-row .b:last-child { border-right: 0; }
+  .sal-dist-row .b .lab {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+  }
+  .sal-dist-row .b .num {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .sal-dist-row .b .lb2 {
+    font-size: 11px;
+    color: var(--gray-700);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 9 — COLLABORATE @ MLRIT (partner grid)
+  ═══════════════════════════════════════════════════════════════ */
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    border: 2px solid var(--ink);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .partner-cell {
+    background: var(--paper);
+    padding: 12px 10px;
+    height: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+  }
+  .partner-cell .nm {
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+  .partner-cell .ds {
+    font-size: 9px;
+    color: var(--gray-500);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 10 — SPORTS INFRASTRUCTURE
+  ═══════════════════════════════════════════════════════════════ */
+  .sports-banner-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 18px 0 8px;
+  }
+  .sports-banner-line .line {
+    flex: 1;
+    height: 2px;
+    background: var(--orange);
+    max-width: 80px;
+  }
+  .sports-banner-line .txt {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .sports-banner-line .txt .or { color: var(--orange); }
+
+  .sports-cols {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 18px;
+  }
+  .sports-col-head {
+    background: var(--orange);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    text-align: center;
+    box-shadow: inset 0 -2px 4px rgba(154,68,19,0.4);
+  }
+  .sports-col-head small {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-top: 2px;
+  }
+  .sports-col-head.green {
+    background: var(--green);
+    box-shadow: inset 0 -2px 4px rgba(31,92,36,0.5);
+  }
+
+  .facility-list { display: grid; gap: 6px; }
+  .facility-list .f {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-sm);
+  }
+  .facility-list .f .ic {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25);
+  }
+  .facility-list.indoor .f .ic { background: var(--orange); }
+  .facility-list .f .nm {
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+  }
+
+  /* center column — illustrated sports panel */
+  .sports-illo {
+    background: linear-gradient(135deg, var(--green-soft), var(--green-light));
+    border: 1px solid var(--green-light);
+    border-radius: var(--r-md);
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-content: start;
+  }
+  .sports-illo .tile {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+    color: #fff;
+    border-radius: var(--r-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 28px;
+    box-shadow: inset 0 -3px 6px rgba(0,0,0,0.25);
+  }
+  .sports-illo .tile.or { background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep)); }
+  .sports-illo .tile small {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* Sports pillars row */
+  .sports-pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 14px 10px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .sports-pillars .p {
+    text-align: center;
+    padding: 4px;
+    border-right: 1px dotted var(--gray-300);
+  }
+  .sports-pillars .p:last-child { border-right: 0; }
+  .sports-pillars .p .ic {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.25);
+  }
+  .sports-pillars .p:nth-child(2) .ic,
+  .sports-pillars .p:nth-child(5) .ic { background: var(--orange); }
+  .sports-pillars .p .nm {
+    font-weight: 800;
+    font-size: 10.5px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .sports-pillars .p .ds {
+    font-size: 10px;
+    color: var(--gray-700);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .scholarship-band {
+    background: linear-gradient(180deg, var(--orange-bright), var(--orange-deep));
+    color: #fff;
+    border-radius: var(--r-md);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    box-shadow: inset 0 -3px 6px rgba(154,68,19,0.4);
+  }
+  .scholarship-band .h {
+    font-weight: 800;
+    font-size: 14.5px;
+    letter-spacing: -0.005em;
+  }
+  .scholarship-band .d {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.92);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 11 — HOSTEL FACILITIES
+  ═══════════════════════════════════════════════════════════════ */
+  .hostel-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .hostel-hero h1 {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+  .hostel-hero h1 .gn { color: var(--ink); display: block; }
+  .hostel-hero h1 .or { color: var(--orange); display: block; font-size: 56px; line-height: 0.95; }
+
+  .hostel-pill-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .hostel-illo {
+    background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+    border-radius: var(--r-lg);
+    padding: 22px 24px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .hostel-illo::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .hostel-illo .icons {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+  }
+  .hostel-illo .h-q {
+    background: var(--orange);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--r-sm);
+    font-weight: 800;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .hostel-illo .h-h {
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: -0.012em;
+  }
+
+  .hostel-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 16px 14px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .hostel-features .f {
+    text-align: center;
+    padding: 8px 6px;
+    border-right: 1px dotted var(--gray-300);
+  }
+  .hostel-features .f:nth-child(4n) { border-right: 0; }
+  .hostel-features .f:nth-child(n+5) { padding-top: 14px; border-top: 1px dotted var(--gray-300); }
+  .hostel-features .f .ic {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.25);
+  }
+  .hostel-features .f:nth-child(2) .ic,
+  .hostel-features .f:nth-child(4) .ic,
+  .hostel-features .f:nth-child(7) .ic { background: var(--orange); }
+  .hostel-features .f .nm {
+    font-weight: 800;
+    font-size: 10.5px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .hostel-features .f .ds {
+    font-size: 10.5px;
+    color: var(--gray-700);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .capacity-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .capacity-row .cap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .capacity-row .cap.boys  { background: var(--green-soft); border-color: var(--green-light); }
+  .capacity-row .cap.girls { background: var(--orange-tint); border-color: var(--orange-light); }
+  .capacity-row .cap .ic {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.25);
+  }
+  .capacity-row .cap.girls .ic { background: var(--orange); }
+  .capacity-row .cap .lab {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-700);
+    margin-bottom: 2px;
+  }
+  .capacity-row .cap.girls .lab { color: var(--orange-deep); }
+  .capacity-row .cap.boys  .lab { color: var(--green-deep); }
+  .capacity-row .cap .num {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--green-deep);
+  }
+  .capacity-row .cap.girls .num { color: var(--orange-deep); }
+  .capacity-row .cap .ss {
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .closing-band {
+    background: var(--green-deep);
+    color: #fff;
+    border-radius: var(--r-md);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    box-shadow: inset 0 -3px 6px rgba(0,0,0,0.30);
+  }
+  .closing-band .left {
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .closing-band .left span { color: #FFC78F; }
+  .closing-band .right {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.85);
+    text-align: right;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 12 — HOW TO REACH US
+  ═══════════════════════════════════════════════════════════════ */
+  .reach-hero {
+    margin-bottom: 18px;
+  }
+  .reach-hero h1 {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+  }
+  .reach-hero h1 .or { color: var(--orange); }
+  .reach-hero .tag {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .reach-hero .tag .or { color: var(--orange); }
+
+  .reach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .reach-info p {
+    font-size: 12.5px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted var(--gray-300);
+  }
+  .reach-info p:last-child { border-bottom: 0; }
+
+  .bus-card {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .bus-row {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--gray-300);
+  }
+  .bus-row:last-child { border-bottom: 0; }
+  .bus-row .ic {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25);
+  }
+  .bus-row .info {
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .bus-row .info b {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .directions-card {
+    background: var(--orange-tint);
+    border: 1px solid var(--orange-light);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+  }
+  .dir-step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+  }
+  .dir-step:not(:last-child) { border-bottom: 1px dotted var(--orange-light); }
+  .dir-step .ic {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: inset 0 -2px 3px rgba(154,68,19,0.4);
+  }
+  .dir-step .info {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .contact-card-12 {
+    background: var(--green-deep);
+    color: #fff;
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    box-shadow: inset 0 -3px 8px rgba(0,0,0,0.3);
+  }
+  .contact-card-12 h3 {
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .contact-card-12 .row {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    align-items: flex-start;
+  }
+  .contact-card-12 .row:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .contact-card-12 .row .ic {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .contact-card-12 .row .lb {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2px;
+  }
+  .contact-card-12 .row .vl {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #fff;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+
+  .qr-card {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--r-md);
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(26,42,58,0.04);
+  }
+  .qr-card .qr-pat {
+    width: 100%;
+    aspect-ratio: 1;
+    background:
+      linear-gradient(45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--ink) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--ink) 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+    background-color: #fff;
+    border: 4px solid var(--ink);
+    border-radius: var(--r-sm);
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .qr-card .qr-pat::before, .qr-card .qr-pat::after {
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    background: var(--paper);
+    border: 5px solid var(--ink);
+    border-radius: 4px;
+  }
+  .qr-card .qr-pat::before { top: 2px; left: 2px; }
+  .qr-card .qr-pat::after  { top: 2px; right: 2px; }
+  .qr-card .lb {
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     PAGE 13 — BACK COVER (orange field)
+  ═══════════════════════════════════════════════════════════════ */
+  #back {
+    background: linear-gradient(155deg, #F08A35 0%, #E97724 50%, #C45A1A 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #back::before {
+    content: '';
+    position: absolute;
+    top: -250px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+    pointer-events: none;
+  }
+  #back::after {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -250px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(154,68,19,0.55), transparent 60%);
+    pointer-events: none;
+  }
+  .back-mid {
+    flex: 1;
+    padding: 48px 56px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .back-arrow {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 38px;
+  }
+  .back-arrow svg { flex-shrink: 0; }
+  .back-arrow .find {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: -0.005em;
+  }
+  .back-arrow .url {
+    font-weight: 800;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: -0.012em;
+    line-height: 1.1;
+    margin-top: 4px;
+  }
+  .back-name {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 48px;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    margin-bottom: 6px;
+  }
+  .back-name span {
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: -0.005em;
+    margin-left: 14px;
+    vertical-align: 12px;
+  }
+  .back-tag {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: #FFE9A8;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.30);
+    max-width: 340px;
+  }
+  .back-info-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  .back-info .row {
+    margin-bottom: 16px;
+  }
+  .back-info .row:last-child { margin-bottom: 0; }
+  .back-info .row .lb {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 4px;
+  }
+  .back-info .row .vl {
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  .back-info .row .vl small {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 3px;
+  }
+  .back-qr {
+    background: #fff;
+    border-radius: var(--r-md);
+    padding: 14px;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+  .back-qr .pt {
+    width: 130px; height: 130px;
+    background:
+      linear-gradient(45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--ink) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--ink) 75%);
+    background-size: 9px 9px;
+    background-position: 0 0, 0 4.5px, 4.5px -4.5px, -4.5px 0;
+    background-color: #fff;
+    border: 5px solid var(--ink);
+    border-radius: var(--r-sm);
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .back-qr .pt::before, .back-qr .pt::after {
+    content: '';
+    position: absolute;
+    width: 30px; height: 30px;
+    background: #fff;
+    border: 6px solid var(--ink);
+    border-radius: 5px;
+  }
+  .back-qr .pt::before { top: 3px; left: 3px; }
+  .back-qr .pt::after  { top: 3px; right: 3px; }
+  .back-qr .lb {
+    font-weight: 800;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .back-social {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .back-social .si {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.30);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .back-foot {
+    padding: 24px 56px 30px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 1 · COVER
+════════════════════════════════════════════════════════════ -->
+<div class="page" id="cover">
+  <!-- Helix / ribbon graphic -->
+  <div class="ribbons">
+    <svg viewBox="0 0 794 1123" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke-linecap="round">
+        <path d="M 740 -20 Q 600 220 480 420 Q 360 620 240 820 Q 160 950 80 1140" stroke="#1F5C24" stroke-width="3" opacity="0.55"/>
+        <path d="M 760 -10 Q 620 230 500 430 Q 380 630 260 830 Q 180 960 100 1130" stroke="#1F5C24" stroke-width="2" opacity="0.55"/>
+        <path d="M 780 0 Q 640 240 520 440 Q 400 640 280 840 Q 200 970 120 1140" stroke="#154418" stroke-width="3" opacity="0.6"/>
+        <path d="M 800 10 Q 660 250 540 450 Q 420 650 300 850 Q 220 980 140 1140" stroke="#154418" stroke-width="2" opacity="0.55"/>
+        <path d="M 720 -30 Q 580 210 460 410 Q 340 610 220 810 Q 140 940 60 1140" stroke="#1F5C24" stroke-width="2" opacity="0.45"/>
+        <path d="M 700 -40 Q 560 200 440 400 Q 320 600 200 800 Q 120 930 40 1140" stroke="#154418" stroke-width="2" opacity="0.4"/>
+        <path d="M 680 -50 Q 540 190 420 390 Q 300 590 180 790 Q 100 920 20 1140" stroke="#1F5C24" stroke-width="1.5" opacity="0.35"/>
+        <path d="M 820 20 Q 680 260 560 460 Q 440 660 320 860 Q 240 990 160 1140" stroke="#1F5C24" stroke-width="2" opacity="0.5"/>
+        <path d="M 660 -60 Q 520 180 400 380 Q 280 580 160 780 Q 80 910 0 1140" stroke="#154418" stroke-width="1.5" opacity="0.3"/>
+        <path d="M 840 30 Q 700 270 580 470 Q 460 670 340 870 Q 260 1000 180 1140" stroke="#154418" stroke-width="1.5" opacity="0.45"/>
+        <path d="M 640 -70 Q 500 170 380 370 Q 260 570 140 770 Q 60 900 -20 1140" stroke="#1F5C24" stroke-width="1" opacity="0.25"/>
+        <path d="M 860 40 Q 720 280 600 480 Q 480 680 360 880 Q 280 1010 200 1140" stroke="#1F5C24" stroke-width="1.5" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cover-top">
+    <div class="cover-mark">
+      <div class="crest">
+        <img src="data:image/png;base64,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" alt="MLR Institute of Technology emblem" />
+      </div>
+      <div>
+        <div class="name">
+          <div class="nm">MLR</div>
+          <div class="sub">INSTITUTE OF<br>TECHNOLOGY</div>
+        </div>
+        <div class="programs">
+          <b>Offering Courses in</b><br>
+          CSE, CSE (AI&amp;ML), CSE (Data Science),<br>
+          ECE, EEE, Aero, Mech
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-mid"></div>
+
+  <div class="cover-bottom">
+    <div class="cover-prospect">PROSPECTUS <span>2026 — 27</span></div>
+
+    <div class="accred-row">
+      <!-- 21 YEARS card -->
+      <div class="accred-card">
+        <div class="seal">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 4 L26 10 L26 22 L16 28 L6 22 L6 10 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M11 20 L11 12 L16 16 L21 12 L21 20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="info">
+          <div class="yr">21</div>
+          <div class="lab">Years</div>
+        </div>
+      </div>
+
+      <!-- NAAC A card -->
+      <div class="accred-card naac">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div class="naac-mark">N<span style="color:var(--orange)">AA</span>C</div>
+          <div class="grade">A</div>
+        </div>
+        <div>
+          <div class="lab">Accredit-<br>ation</div>
+          <div style="font-size:8px; font-weight:800; color:var(--red); letter-spacing:0.08em; text-transform:uppercase; margin-top:2px;">Grade</div>
+        </div>
+      </div>
+
+      <!-- NIRF Top 300 card -->
+      <div class="accred-card nirf">
+        <div class="nirf-mark">nirf</div>
+        <div>
+          <div style="display:flex; align-items:baseline; gap:4px;">
+            <div class="top">TOP</div>
+            <div class="top" style="color:var(--orange); font-size:22px;">300</div>
+          </div>
+          <div class="lab">Engineering<br>Rank · 201–300</div>
+        </div>
+      </div>
+
+      <!-- NIRF Top 50 card -->
+      <div class="accred-card nirf" style="background:var(--red);">
+        <div class="nirf-mark">nirf</div>
+        <div>
+          <div style="display:flex; align-items:baseline; gap:4px;">
+            <div class="top">TOP</div>
+            <div class="top" style="color:#FFE9A8; font-size:22px;">50</div>
+          </div>
+          <div class="lab">Innovation<br>Rank · 11–50</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 2 · WELCOME
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body" style="padding-top:64px;">
+    <h1 class="welcome-h">Welcome to</h1>
+    <h1 class="welcome-h row">
+      <span class="mlr-serif">MLR</span><span class="gn">Institute of Technology</span>
+    </h1>
+
+    <div style="margin-top:38px; max-width:680px;">
+      <p class="copy" style="font-size:14px; margin-bottom:18px;">
+        Established in <b>2005</b>, MLR Institute of Technology (MLRIT) has emerged as one of Telangana's leading institutions committed to <b>academic excellence, innovation, and holistic development</b>. With a vision to nurture competent engineers and future-ready leaders, the institute has consistently upheld high standards in education, research, and industry engagement.
+      </p>
+
+      <p class="copy" style="font-size:14px; margin-bottom:18px;">
+        At MLRIT, learning goes beyond traditional classroom teaching. The institution adopts a <b>dynamic approach</b> that integrates strong theoretical foundations with hands-on practical exposure, encouraging students to think critically, innovate, and solve real-world problems. This balanced pedagogy has enabled graduates to excel in <b>information technology, core engineering sectors, research, entrepreneurship, and management</b>.
+      </p>
+
+      <p class="copy" style="font-size:14px; margin-bottom:18px;">
+        The institute is supported by a team of <b>highly qualified and experienced faculty</b>, modern infrastructure, well-equipped laboratories, and a vibrant academic environment. <b>Strong collaborations with industry and research organizations</b> further enhance students' exposure to emerging technologies and professional practices.
+      </p>
+
+      <p class="copy" style="font-size:14px; margin-bottom:32px;">
+        Driven by a commitment to quality and continuous improvement, MLRIT focuses on developing not just skilled professionals, but <b>responsible individuals with strong ethical values and a global outlook</b>.
+      </p>
+
+      <div style="border-left:4px solid var(--orange); padding:8px 0 8px 22px; margin-top:8px;">
+        <p class="welcome-quote">
+          At MLRIT, education is not merely about earning a degree — it is about <span style="color:var(--orange);">shaping minds, inspiring innovation, and building the leaders of tomorrow.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- bottom institutional badges -->
+    <div style="position:absolute; bottom:48px; left:48px; right:48px; display:flex; justify-content:space-between; align-items:center;">
+      <div class="dotted-sep" style="margin:0; flex:1;">
+        <span class="label">Established 2005 · Autonomous Institute · Hyderabad</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>02 / 13 · WELCOME</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 3 · WHY CHOOSE MLRIT (10 reasons, matching original)
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Why Choose MLRIT</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 26px; max-width:560px;">
+      Ten reasons families across Telangana choose MLRIT for engineering education that delivers academic depth, industry exposure, and lasting careers.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="nm">1</div>
+        <div class="txt">Cutting-Edge Industry-Aligned Curriculum.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">2</div>
+        <div class="txt">Seasoned Faculty Backed by Strong Research Support.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">3</div>
+        <div class="txt">State-of-the-Art Labs Equipped with Latest Software.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">4</div>
+        <div class="txt">Internships and Real-World Project Exposure.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">5</div>
+        <div class="txt">Events and workshops designed to equip students with essential 21st-century skills.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">6</div>
+        <div class="txt">Comprehensive Placement Coaching and Career Mentorship.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">7</div>
+        <div class="txt">Student Centric Teaching Pedagogies.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">8</div>
+        <div class="txt">Research and Innovation Driven Institute.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">9</div>
+        <div class="txt">Seed Funding and Incubation Services for Student Innovations and Startups.</div>
+      </div>
+      <div class="why-item">
+        <div class="nm">10</div>
+        <div class="txt">State of the Art Indoor &amp; Outdoor Sports Facilities with Nationally Reputed Coaches and Trainers.</div>
+      </div>
+    </div>
+
+    <!-- bottom outcome strip -->
+    <div style="margin-top:28px; background:var(--green-deep); color:#fff; border-radius:var(--r-md); padding:14px 22px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:14px; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.3);">
+      <div>
+        <div style="font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:3px;">Highest Package</div>
+        <div style="font-weight:800; font-size:18px; color:#FFE9A8;">₹51 LPA</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:3px;">Placements</div>
+        <div style="font-weight:800; font-size:18px; color:#FFE9A8;">80%</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:3px;">Job Offers</div>
+        <div style="font-weight:800; font-size:18px; color:#FFE9A8;">544</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:3px;">Recruiters</div>
+        <div style="font-weight:800; font-size:18px; color:#FFE9A8;">62+</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>03 / 13 · WHY CHOOSE MLRIT</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 4 · COURSES OFFERED
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Courses Offered</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 24px; max-width:560px;">
+      Eighteen accredited programmes across Undergraduate, Postgraduate, MBA and Doctoral disciplines — each designed with industry, recruited from globally.
+    </p>
+
+    <!-- UG -->
+    <div class="course-block">
+      <div class="pill-tab">UG Courses</div>
+      <ul>
+        <li>Aeronautical Engineering</li>
+        <li>Computer Science &amp; Engineering</li>
+        <li>CSE — AI &amp; ML</li>
+        <li>CSE — Data Science</li>
+        <li>Electronics &amp; Communication Engineering</li>
+        <li>Mechanical Engineering</li>
+        <li>Electrical &amp; Electronics Engineering</li>
+      </ul>
+      <div class="meta-row">
+        <span><b>4 Years</b> · Bachelor of Technology</span>
+        <span>·</span>
+        <span>Industry-aligned curriculum</span>
+        <span>·</span>
+        <span>JNTUH affiliated</span>
+      </div>
+    </div>
+
+    <!-- PG -->
+    <div class="course-block">
+      <div class="pill-tab">PG Courses · M.Tech</div>
+      <ul>
+        <li>Computer Science &amp; Engineering</li>
+        <li>Embedded Systems</li>
+        <li>Thermal Engineering</li>
+      </ul>
+      <div class="meta-row">
+        <span><b>2 Years</b> · Master of Technology</span>
+        <span>·</span>
+        <span>Research-driven coursework</span>
+      </div>
+    </div>
+
+    <!-- MBA -->
+    <div class="course-block">
+      <div class="pill-tab">MBA</div>
+      <ul>
+        <li>Finance</li>
+        <li>Marketing</li>
+        <li>Human Resources</li>
+        <li>Entrepreneurship</li>
+      </ul>
+      <div class="meta-row">
+        <span><b>2 Years</b> · Master of Business Administration</span>
+        <span>·</span>
+        <span>Industry mentorship</span>
+      </div>
+    </div>
+
+    <!-- Ph.D -->
+    <div class="course-block">
+      <div class="pill-tab">Ph.D</div>
+      <ul>
+        <li>Computer Science &amp; Engineering</li>
+        <li>Electronics &amp; Communication Engineering</li>
+        <li>Mechanical Engineering</li>
+      </ul>
+      <div class="meta-row">
+        <span><b>Doctoral</b> · Full-time &amp; Part-time</span>
+        <span>·</span>
+        <span>UGC-recognised research</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>04 / 13 · COURSES OFFERED</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 5 · HALLMARKS OF DISTINCTION
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Hallmarks of Distinction</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 22px; max-width:580px;">
+      MLRIT is recognised, funded and endorsed by the Government of India and Indian innovation agencies for pioneering work in technology, research and industry-academia engagement.
+    </p>
+
+    <div style="background:var(--paper); border:1px solid var(--gray-200); border-radius:var(--r-md); padding: 8px 24px; box-shadow: 0 1px 2px rgba(26,42,58,0.04);">
+
+      <div class="hallmark-row">
+        <div class="star">✦</div>
+        <div class="info">
+          <div class="h">Atal Community Innovation Centre</div>
+          <div class="d">A government-backed innovation lab open to every MLRIT student — mentors, prototyping tools, and seed funding for student startups, all on campus.</div>
+        </div>
+        <div class="agency green">
+          Supported by<br>
+          <b>NITI Aayog</b>
+        </div>
+      </div>
+
+      <div class="hallmark-row">
+        <div class="star">⚙</div>
+        <div class="info">
+          <div class="h">C2S — Chip-to-Startup Programme</div>
+          <div class="d">One of only a handful of colleges in India selected for chip design education. VLSI lab access and MeitY-funded research fellowships for undergraduates.</div>
+        </div>
+        <div class="agency">
+          Supported by<br>
+          <b>MeitY · Govt. India</b>
+        </div>
+      </div>
+
+      <div class="hallmark-row">
+        <div class="star">📜</div>
+        <div class="info">
+          <div class="h">Intellectual Property Facilitation Centre</div>
+          <div class="d">An on-campus IPFC. File patents and protect your innovations while still a student — at no personal cost, with structured guided support.</div>
+        </div>
+        <div class="agency green">
+          Supported by<br>
+          <b>Ministry of MSME</b>
+        </div>
+      </div>
+
+      <div class="hallmark-row">
+        <div class="star">🤖</div>
+        <div class="info">
+          <div class="h">First institution in India to receive a semi-humanoid robot</div>
+          <div class="d">A working benchmark for next-generation engineering education. Hands-on humanoid robotics exposure unavailable anywhere else in the country.</div>
+        </div>
+        <div class="agency">
+          In partnership with<br>
+          <b>TASK · AIRA</b>
+        </div>
+      </div>
+
+      <div class="hallmark-row">
+        <div class="star">⛬</div>
+        <div class="info">
+          <div class="h">Livelihood Business Incubator</div>
+          <div class="d">A seed-funded incubator backed by the Ministry of MSME. Turn an idea into a registered startup before graduation, with capital, mentors and a real runway.</div>
+        </div>
+        <div class="agency green">
+          Supported by<br>
+          <b>Ministry of MSME</b>
+        </div>
+      </div>
+
+      <div class="hallmark-row">
+        <div class="star">✓</div>
+        <div class="info">
+          <div class="h">NAAC Grade A Accredited &amp; NIRF Ranked</div>
+          <div class="d">NAAC Grade A accreditation for academic quality. NIRF Top 300 in Engineering and Top 50 in the Innovation rankings — among India's recognised technical institutes.</div>
+        </div>
+        <div class="agency">
+          Recognised by<br>
+          <b>NAAC · NIRF</b>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:22px; padding:14px 22px; background:var(--green-soft); border:1px solid var(--green-light); border-radius:var(--r-md); display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+      <div class="label green" style="margin-right:6px; font-weight:700;">Recognised by</div>
+      <span class="pill-tab" style="font-size:11px;">NITI Aayog</span>
+      <span class="pill-tab orange" style="font-size:11px;">MeitY</span>
+      <span class="pill-tab" style="font-size:11px;">MSME</span>
+      <span class="pill-tab orange" style="font-size:11px;">AICTE</span>
+      <span class="pill-tab" style="font-size:11px;">NAAC · A</span>
+      <span class="pill-tab orange" style="font-size:11px;">UGC</span>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>05 / 13 · HALLMARKS</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 6 · NAVARATNA MODEL
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Unique Educational Framework @ MLRIT</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 18px; max-width:600px;">
+      The <b>Navaratna Model</b> — MLRIT's proprietary nine-dimension pedagogy framework — develops the complete engineer: technically rigorous, socially responsible, creatively confident, professionally ready.
+    </p>
+
+    <div class="navaratna-wrap">
+      <div class="nava-svg-wrap">
+        <!-- 9-petal Navaratna Wheel -->
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff"/>
+              <stop offset="60%" stop-color="#FFF8F1"/>
+              <stop offset="100%" stop-color="#FFE0C7"/>
+            </radialGradient>
+          </defs>
+
+          <!-- 9 petals — 40° each, around center 200,200 -->
+          <!-- Petal 1: Academic Excellence — orange — top center -->
+          <g transform="rotate(-90 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#E97724" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 2: Personality Development — green -->
+          <g transform="rotate(-50 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#3F9A30" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 3: Community & Care — brown/red -->
+          <g transform="rotate(-10 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#A0532D" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 4: Sports Excellence — olive/yellow -->
+          <g transform="rotate(30 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#9DA841" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 5: Visual & Performing Arts — red -->
+          <g transform="rotate(70 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#E33E3E" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 6: Entrepreneurship & Leadership — navy -->
+          <g transform="rotate(110 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#2E3A60" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 7: Innovation & Creativity — royal blue -->
+          <g transform="rotate(150 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#2858B5" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 8: Universal Value & Ethics — yellow -->
+          <g transform="rotate(190 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#D8C12E" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Petal 9: Skill Development — purple/magenta -->
+          <g transform="rotate(230 200 200)">
+            <path d="M 200 200 L 200 70 A 130 130 0 0 1 244 78 Z" fill="#8E2D8E" stroke="#fff" stroke-width="2"/>
+          </g>
+
+          <!-- Inner ring -->
+          <circle cx="200" cy="200" r="80" fill="url(#centerGrad)" stroke="#E97724" stroke-width="2.5"/>
+
+          <!-- Center text -->
+          <text x="200" y="194" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="20" fill="#E97724" letter-spacing="-0.5">Navaratna</text>
+          <text x="200" y="216" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="14" fill="#2E7D32" letter-spacing="0.5">M O D E L</text>
+          <text x="200" y="232" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="8" fill="#7A8A9A" letter-spacing="2">9 DIMENSIONS</text>
+
+          <!-- Petal labels (positioned around petals) -->
+          <g font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="9" fill="#fff" text-anchor="middle">
+            <text x="200" y="100">ACADEMIC</text>
+            <text x="200" y="111">EXCELLENCE</text>
+
+            <g transform="rotate(40 200 200)">
+              <text x="200" y="100">PERSONALITY</text>
+              <text x="200" y="111">DEVELOPMENT</text>
+            </g>
+
+            <g transform="rotate(80 200 200)">
+              <text x="200" y="100" transform="rotate(-80 200 100)">COMMUNITY</text>
+              <text x="200" y="111" transform="rotate(-80 200 111)">&amp; CARE</text>
+            </g>
+
+            <g transform="rotate(120 200 200)">
+              <text x="200" y="100" transform="rotate(-120 200 100)">SPORTS</text>
+              <text x="200" y="111" transform="rotate(-120 200 111)">EXCELLENCE</text>
+            </g>
+
+            <g transform="rotate(160 200 200)">
+              <text x="200" y="100" transform="rotate(-160 200 100)">VISUAL &amp;</text>
+              <text x="200" y="111" transform="rotate(-160 200 111)">PERF. ARTS</text>
+            </g>
+
+            <g transform="rotate(200 200 200)">
+              <text x="200" y="100" transform="rotate(-200 200 100)">ENTREPRENEUR</text>
+              <text x="200" y="111" transform="rotate(-200 200 111)">&amp; LEADERSHIP</text>
+            </g>
+
+            <g transform="rotate(240 200 200)">
+              <text x="200" y="100" transform="rotate(-240 200 100)">INNOVATION</text>
+              <text x="200" y="111" transform="rotate(-240 200 111)">&amp; CREATIVITY</text>
+            </g>
+
+            <g transform="rotate(280 200 200)">
+              <text x="200" y="100" transform="rotate(-280 200 100)" fill="#1A2A3A">UNIVERSAL</text>
+              <text x="200" y="111" transform="rotate(-280 200 111)" fill="#1A2A3A">VALUES</text>
+            </g>
+
+            <g transform="rotate(320 200 200)">
+              <text x="200" y="100" transform="rotate(-320 200 100)">SKILL</text>
+              <text x="200" y="111" transform="rotate(-320 200 111)">DEVELOPMENT</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Right column: 9 dimension descriptions -->
+      <div class="nava-points">
+        <div class="pt"><div class="dot" style="background:#E97724;"></div><div><b>Academic Excellence</b>Deep subject mastery — the technical foundation everything else builds on.</div></div>
+        <div class="pt"><div class="dot" style="background:#3F9A30;"></div><div><b>Personality Development</b>Communication, leadership and composure for the workplace.</div></div>
+        <div class="pt"><div class="dot" style="background:#8E2D8E;"></div><div><b>Skill Development</b>Industry-aligned technical &amp; soft skills, beyond the syllabus.</div></div>
+        <div class="pt"><div class="dot" style="background:#D8C12E;"></div><div><b>Universal Values &amp; Ethics</b>A strong moral spine and ethical decision-making capacity.</div></div>
+        <div class="pt"><div class="dot" style="background:#2858B5;"></div><div><b>Innovation &amp; Creativity</b>Original thinking and problem-solving for real-world challenges.</div></div>
+        <div class="pt"><div class="dot" style="background:#A0532D;"></div><div><b>Community &amp; Care</b>Social responsibility and empathy — a global-citizen outlook.</div></div>
+        <div class="pt"><div class="dot" style="background:#9DA841;"></div><div><b>Sports Excellence</b>Physical fitness, team spirit and a competitive mindset.</div></div>
+        <div class="pt"><div class="dot" style="background:#E33E3E;"></div><div><b>Visual &amp; Performing Arts</b>Creative expression and cultural range beyond engineering.</div></div>
+        <div class="pt"><div class="dot" style="background:#2E3A60;"></div><div><b>Entrepreneurship &amp; Leadership</b>Startup thinking, calibrated risk and the courage to lead.</div></div>
+      </div>
+    </div>
+
+    <div style="background:var(--green-deep); color:#fff; border-radius:var(--r-md); padding:14px 22px; margin-top:18px; box-shadow:inset 0 -3px 8px rgba(0,0,0,0.3);">
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center;">
+        <div style="font-size:32px;">🏅</div>
+        <div>
+          <div style="font-weight:800; font-size:14.5px; letter-spacing:-0.005em; margin-bottom:3px;">A degree is what we award. A complete engineer is what we graduate.</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,0.78); line-height:1.5;">Every experience at MLRIT — from orientation to final viva — is engineered around this nine-dimension framework.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>06 / 13 · NAVARATNA MODEL</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 7 · PLACEMENT OPPORTUNITIES
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="placements-hero">
+      <!-- Left column: title, stats, 80% seal -->
+      <div>
+        <h1 class="placement-headline">
+          <span class="gn">Placement</span><br>
+          <span class="or">Opportunities</span>
+        </h1>
+
+        <div class="dotted-sep" style="max-width:160px; margin:8px 0 16px;">
+          <span class="label">2025 Class</span>
+        </div>
+
+        <div class="stats-block">
+          <div class="row">
+            <div class="v">62+</div>
+            <div class="d">Companies on campus</div>
+          </div>
+          <div style="font-size:13px; color:var(--gray-700); margin-top:8px; line-height:1.6;">
+            Highest salary package of <b style="color:var(--ink);">₹51 lakh per annum</b>.<br>
+            Average salary package <b style="color:var(--ink);">₹6.5 lakh per annum</b>.
+          </div>
+        </div>
+
+        <!-- 80% PLACEMENTS seal -->
+        <div style="margin-top:24px;">
+          <div style="position:relative; width:200px; height:200px; margin:0 auto;">
+            <!-- decorative starbursts top -->
+            <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); display:flex; gap:8px; font-size:14px;">
+              <span style="color:var(--orange);">★</span>
+              <span style="color:var(--green);">●</span>
+              <span style="color:var(--orange);">★</span>
+            </div>
+            <!-- shield badge -->
+            <svg viewBox="0 0 200 200" style="width:100%; height:100%;">
+              <defs>
+                <linearGradient id="shieldG" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#3F9A30"/>
+                  <stop offset="100%" stop-color="#1F5C24"/>
+                </linearGradient>
+              </defs>
+              <!-- ribbon banner top -->
+              <path d="M 30 50 L 100 30 L 170 50 L 160 80 L 100 65 L 40 80 Z" fill="#E97724" stroke="#C45A1A" stroke-width="2"/>
+              <!-- shield body -->
+              <path d="M 50 75 Q 50 70 55 70 L 145 70 Q 150 70 150 75 L 150 130 Q 150 165 100 185 Q 50 165 50 130 Z" fill="url(#shieldG)" stroke="#1F5C24" stroke-width="2"/>
+              <!-- 80% text -->
+              <text x="100" y="120" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="38" fill="#fff" letter-spacing="-2">80%</text>
+              <!-- PLACEMENTS text -->
+              <text x="100" y="150" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="14" fill="#FFE9A8" letter-spacing="2">PLACEMENTS</text>
+              <text x="100" y="170" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="9" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">EACH YEAR</text>
+            </svg>
+            <!-- decorative dots bottom -->
+            <div style="position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; font-size:10px;">
+              <span style="color:var(--orange);">●</span>
+              <span style="color:var(--green);">●</span>
+              <span style="color:var(--orange);">●</span>
+              <span style="color:var(--green);">●</span>
+              <span style="color:var(--orange);">●</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: recruiter wall -->
+      <div>
+        <div class="pill-tab" style="background:var(--green-deep); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--orange);">●</span> Some of our recruiters <span style="color:var(--orange);">●</span>
+        </div>
+        <div class="recruiter-grid">
+          <div class="recruiter-cell" style="color:#0078d4;">⊞ Microsoft</div>
+          <div class="recruiter-cell" style="color:#FF9900;">amazon</div>
+          <div class="recruiter-cell">amadeus</div>
+          <div class="recruiter-cell">J.P. Morgan</div>
+          <div class="recruiter-cell" style="color:#1565C0;">&lt;epam&gt;</div>
+          <div class="recruiter-cell" style="color:#1565C0;">JUSPAY</div>
+          <div class="recruiter-cell" style="color:#0033A0;">JSW</div>
+          <div class="recruiter-cell" style="color:#16A085;">sears</div>
+          <div class="recruiter-cell" style="color:#E63946;">DBS</div>
+          <div class="recruiter-cell" style="color:#E97724;">Accolite</div>
+          <div class="recruiter-cell" style="color:#F4D03F;">EY</div>
+          <div class="recruiter-cell" style="color:#1565C0;">zscaler</div>
+          <div class="recruiter-cell">WILEY|EDGE</div>
+          <div class="recruiter-cell" style="color:#7B1FA2;">accenture</div>
+          <div class="recruiter-cell" style="color:#E97724;">ARCADIS</div>
+          <div class="recruiter-cell" style="color:#2858B5;">Capgemini</div>
+          <div class="recruiter-cell" style="color:#0078D4;">Cognizant</div>
+          <div class="recruiter-cell">UST</div>
+          <div class="recruiter-cell" style="color:#0530AD;">IBM</div>
+          <div class="recruiter-cell" style="color:#1F5C24;">TATA Tech</div>
+          <div class="recruiter-cell" style="color:#0078D4;">TCS</div>
+          <div class="recruiter-cell" style="color:#7A8A9A;">virtusa</div>
+          <div class="recruiter-cell" style="color:#86BC25;">Deloitte.</div>
+          <div class="recruiter-cell" style="color:#FF9900;">LTIMindtree</div>
+          <div class="recruiter-cell">LUMEN</div>
+          <div class="recruiter-cell" style="color:#7B1FA2;">Mphasis</div>
+          <div class="recruiter-cell" style="color:#007CC3;">Infosys</div>
+          <div class="recruiter-cell" style="color:#E97724;">Tech Mahindra</div>
+          <div class="recruiter-cell" style="color:#1F5C24;">TATA Adv. Sys.</div>
+          <div class="recruiter-cell" style="color:#E63946;">HSBC</div>
+          <div class="recruiter-cell" style="color:#0066B2;">HCLTech</div>
+          <div class="recruiter-cell" style="color:#3F9A30;">DeltaX</div>
+          <div class="recruiter-cell" style="color:#E97724;">GMR</div>
+          <div class="recruiter-cell">JBM</div>
+          <div class="recruiter-cell" style="color:#E63946;">NTT DATA</div>
+          <div class="recruiter-cell" style="color:#7B1FA2;">wipro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>07 / 13 · PLACEMENT OPPORTUNITIES</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 8 · PLACEMENTS THAT STANDOUT
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Placements That Standout</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 22px; max-width:540px;">
+      Verified placement data from the <b>Class of 2025</b> — every offer audited by the Training &amp; Placement Cell.
+    </p>
+
+    <!-- Hero stat row: 51 LPA, 544 Offers, 36 MNCs -->
+    <div class="hero-stat-row">
+      <div class="stat">
+        <div class="ico-bx">🏆</div>
+        <div>
+          <div class="v">51 <span class="u">LPA</span></div>
+          <div class="lb">Highest Salary</div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="ico-bx">💼</div>
+        <div>
+          <div class="v">544</div>
+          <div class="lb">Job Offers</div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="ico-bx">👥</div>
+        <div>
+          <div class="v">36</div>
+          <div class="lb">MNC's Visited</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dotted-sep" style="margin: 18px 0 14px;">
+      <span class="label">Top Recruiters by Number of Selects</span>
+    </div>
+
+    <div class="top-recruiters">
+      <div class="tr"><div class="co" style="color:#0078D4;">cognizant</div><div class="ct">107</div><div class="lb">selections</div></div>
+      <div class="tr"><div class="co" style="color:#007CC3;">Infosys</div><div class="ct">92</div><div class="lb">selections</div></div>
+      <div class="tr"><div class="co" style="color:#0066B2;">HCLTech</div><div class="ct">67</div><div class="lb">selections</div></div>
+      <div class="tr"><div class="co" style="color:#1E64C8;">tcs</div><div class="ct">53</div><div class="lb">selections</div></div>
+      <div class="tr"><div class="co" style="color:#7A8A9A;">virtusa</div><div class="ct">45</div><div class="lb">selections</div></div>
+    </div>
+
+    <div class="dotted-sep" style="margin: 14px 0;">
+      <span class="label">Top Offers</span>
+    </div>
+
+    <div class="top-offers">
+      <div class="of">
+        <div class="co" style="color:#0078D4;">⊞ Microsoft</div>
+        <div class="of-line"></div>
+        <div class="pkg">₹51<span class="u"> LPA</span></div>
+      </div>
+      <div class="of">
+        <div class="co" style="color:#1565C0;">SCALER</div>
+        <div class="of-line"></div>
+        <div class="pkg">₹48<span class="u"> LPA</span></div>
+      </div>
+      <div class="of">
+        <div class="co" style="color:#3F9A30;">vivnovation</div>
+        <div class="of-line"></div>
+        <div class="pkg">₹20<span class="u"> LPA</span></div>
+      </div>
+    </div>
+
+    <div class="sal-dist">
+      <div class="dotted-sep" style="margin: 0 0 6px;">
+        <span class="label">Salary-Wise Offers Distribution</span>
+      </div>
+
+      <div class="sal-dist-row">
+        <div class="b">
+          <div class="lab">₹10 LPA<br>&amp; above</div>
+          <div class="num">18</div>
+          <div class="lb2">Offers</div>
+        </div>
+        <div class="b">
+          <div class="lab">₹8–10 LPA</div>
+          <div class="num">17</div>
+          <div class="lb2">Offers</div>
+        </div>
+        <div class="b">
+          <div class="lab">₹6–8 LPA</div>
+          <div class="num">58</div>
+          <div class="lb2">Offers</div>
+        </div>
+        <div class="b">
+          <div class="lab">₹4–6 LPA</div>
+          <div class="num">366</div>
+          <div class="lb2">Offers</div>
+        </div>
+        <div class="b">
+          <div class="lab">₹3–4 LPA</div>
+          <div class="num">85</div>
+          <div class="lb2">Offers</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding-top:12px; border-top:1px dotted var(--gray-300); display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:11px; color:var(--gray-700);"><b style="color:var(--orange-deep);">44 offers</b> exceeding ₹6 LPA · <b style="color:var(--orange-deep);">150+ MNC interns</b> annually</div>
+        <div class="label green">Verified · Audited Annually</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>08 / 13 · PLACEMENTS THAT STANDOUT</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 9 · COLLABORATE @ MLRIT
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Collaborate @ MLRIT</h2>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 22px; max-width:580px;">
+      <b>25+ active partnerships</b> connecting MLRIT students to industry, research labs, government innovation agencies and global academic institutions — every one current and renewed annually.
+    </p>
+
+    <div class="partner-grid">
+      <div class="partner-cell"><div class="nm">CITD</div><div class="ds">Tool Design</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#003D7A;">NRDC</div><div class="ds">Tech Commercialisation</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#7A8A9A;">T-Hub</div><div class="ds">Startup Incubation</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#3F9A30;">ALEAP</div><div class="ds">Women Entrepreneurs</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E97724;">IIT Hyderabad</div><div class="ds">Joint Research</div></div>
+
+      <div class="partner-cell"><div class="nm" style="color:#E97724;">Wadhwani</div><div class="ds">Foundation</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E97724;">Palle Srujana</div><div class="ds">Rural Innovation</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#0066B2;">TATA Technologies</div><div class="ds">Engineering Software</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#1F5C24;">ISB</div><div class="ds">MBA Mentoring</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#0066B2;">Dassault Systèmes</div><div class="ds">CATIA · 3D Design</div></div>
+
+      <div class="partner-cell"><div class="nm" style="color:#1565C0;">CSIR-NAL</div><div class="ds">Aerospace Research</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#003D7A;">IUCEE</div><div class="ds">USA — India Exchange</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#3F9A30;">TASK</div><div class="ds">Skill &amp; Knowledge</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#0078D4;">Microsoft IT Academy</div><div class="ds">Azure · Cloud</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E63946;">Tech Mahindra</div><div class="ds">Digital Transformation</div></div>
+
+      <div class="partner-cell"><div class="nm" style="color:#1F5C24;">TATA Advanced Sys.</div><div class="ds">Defence-Tech Projects</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E63946;">ORACLE</div><div class="ds">Database Certifications</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#0530AD;">IBM</div><div class="ds">Cloud · AI Workshops</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E97724;">IDEALABS</div><div class="ds">Innovation Studio</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#003D7A;">BOEING</div><div class="ds">Project Visits</div></div>
+
+      <div class="partner-cell"><div class="nm" style="color:#1565C0;">National Instruments</div><div class="ds">LabVIEW · Test</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#E97724;">TechyBees</div><div class="ds">E-Learning</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#1F5C24;">AERXLABS</div><div class="ds">Aerospace Lab</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#7B1FA2;">QNX</div><div class="ds">Embedded Systems</div></div>
+      <div class="partner-cell"><div class="nm" style="color:#007CC3;">Infosys</div><div class="ds">Campus Placement</div></div>
+    </div>
+
+    <div style="margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:var(--orange-tint); border:1px solid var(--orange-light); border-radius:var(--r-md); padding:12px 18px;">
+        <div class="label orange" style="margin-bottom:4px;">A Working Number</div>
+        <div style="font-weight:800; font-size:24px; color:var(--orange-deep); letter-spacing:-0.025em; line-height:1;">25<span style="color:var(--orange);">+</span> active MoUs</div>
+        <div class="copy" style="font-size:11px; margin-top:4px;">Each renewed annually. Each generating internships, briefs or research engagements.</div>
+      </div>
+      <div style="background:var(--green-soft); border:1px solid var(--green-light); border-radius:var(--r-md); padding:12px 18px;">
+        <div class="label green" style="margin-bottom:4px;">What Students Get</div>
+        <div class="copy" style="font-size:12px; line-height:1.55; color:var(--ink); font-weight:500;">Real projects with real deadlines. Internships before graduation. Recruiter familiarity. A network that doesn't end at convocation.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>09 / 13 · COLLABORATE</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 10 · SPORTS INFRASTRUCTURE
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="brush-banner">
+      <h2>Sports Infrastructure &amp; Facilities</h2>
+    </div>
+
+    <div class="sports-banner-line">
+      <div class="line"></div>
+      <div class="txt">TRAIN. <span class="or">COMPETE.</span> EXCEL.</div>
+      <div class="line"></div>
+    </div>
+
+    <p class="lede" style="text-align:center; margin: 0 auto 8px; max-width:580px;">
+      At MLRIT, we believe that sports build stronger bodies, sharper minds and better leaders. Our top-notch infrastructure inspires excellence every day.
+    </p>
+
+    <div class="sports-cols">
+      <div>
+        <div class="sports-col-head">OUTDOOR<small>Sports Facilities</small></div>
+        <div class="facility-list">
+          <div class="f"><div class="ic">🏏</div><div class="nm">Cricket Ground</div></div>
+          <div class="f"><div class="ic">🏀</div><div class="nm">Basketball Court</div></div>
+          <div class="f"><div class="ic">🏐</div><div class="nm">Volleyball Court</div></div>
+          <div class="f"><div class="ic">⚽</div><div class="nm">Football Ground</div></div>
+          <div class="f"><div class="ic">🤸</div><div class="nm">Kabaddi Fields</div></div>
+        </div>
+      </div>
+
+      <div class="sports-illo">
+        <div class="tile"><span>🏸</span><small>Badminton<br>Academy</small></div>
+        <div class="tile or"><span>🏏</span><small>Cricket<br>Ground</small></div>
+        <div class="tile or"><span>🏓</span><small>Table<br>Tennis</small></div>
+        <div class="tile"><span>🏀</span><small>Basketball<br>Court</small></div>
+        <div class="tile"><span>🎱</span><small>Billiards &amp;<br>Snooker</small></div>
+        <div class="tile or"><span>♟️</span><small>Chess<br>Hall</small></div>
+      </div>
+
+      <div>
+        <div class="sports-col-head green">INDOOR<small>Sports Facilities</small></div>
+        <div class="facility-list indoor">
+          <div class="f"><div class="ic">🏸</div><div class="nm">Badminton Courts</div></div>
+          <div class="f"><div class="ic">🏓</div><div class="nm">Table Tennis Court</div></div>
+          <div class="f"><div class="ic">🎯</div><div class="nm">Carroms</div></div>
+          <div class="f"><div class="ic">♟️</div><div class="nm">Chess</div></div>
+          <div class="f"><div class="ic">🎱</div><div class="nm">Billiards / Snooker Table</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sports-pillars">
+      <div class="p">
+        <div class="ic">🏆</div>
+        <div class="nm">World-Class<br>Infrastructure</div>
+        <div class="ds">Built to international standards</div>
+      </div>
+      <div class="p">
+        <div class="ic">💪</div>
+        <div class="nm">Fitness &amp;<br>Performance</div>
+        <div class="ds">Equipped for strength &amp; conditioning</div>
+      </div>
+      <div class="p">
+        <div class="ic">🎯</div>
+        <div class="nm">Expert Coaching<br>&amp; Training</div>
+        <div class="ds">Guidance from experienced coaches</div>
+      </div>
+      <div class="p">
+        <div class="ic">🤝</div>
+        <div class="nm">Holistic<br>Development</div>
+        <div class="ds">Discipline, teamwork &amp; leadership</div>
+      </div>
+      <div class="p">
+        <div class="ic">🥇</div>
+        <div class="nm">Building Champions<br>For Tomorrow</div>
+        <div class="ds">Encouraging talent &amp; greatness</div>
+      </div>
+    </div>
+
+    <div class="scholarship-band">
+      <div>
+        <div class="h">SPORTS SCHOLARSHIP WILL BE INCLUDED</div>
+        <div class="d">For meritorious sports achievers to support their journey to excellence.</div>
+      </div>
+      <div style="font-size:32px; line-height:1;">🏅</div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>10 / 13 · SPORTS INFRASTRUCTURE</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 11 · HOSTEL FACILITIES
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="hostel-hero">
+      <div>
+        <h1>
+          <span class="gn">A HOME THAT<br>SUPPORTS YOUR</span>
+          <span class="or">JOURNEY</span>
+        </h1>
+        <div class="hostel-pill-row">
+          <div class="pill-tab">Hostel Facilities</div>
+          <div style="font-weight:700; font-size:14px; color:var(--orange);">— AT MLRIT —</div>
+        </div>
+        <p class="copy" style="margin-top:14px; max-width:300px;">
+          <b>Safe. Comfortable. Convenient.</b> Experience a home away from home with world-class hostel facilities designed for your success.
+        </p>
+      </div>
+
+      <div class="hostel-illo">
+        <div class="icons">
+          <span>🛏️</span>
+          <span>📚</span>
+          <span>🍽️</span>
+          <span>🏥</span>
+          <span>📶</span>
+        </div>
+        <div class="h-q">🏥 ON-CAMPUS HOSPITAL · FREE FOR ALL STUDENTS</div>
+        <div class="h-h">A campus designed for focused, balanced student living.</div>
+      </div>
+    </div>
+
+    <div class="dotted-sep">
+      <span class="label">Our Hostel Features</span>
+    </div>
+
+    <div class="hostel-features">
+      <div class="f">
+        <div class="ic">🛏️</div>
+        <div class="nm">Comfortable Rooms</div>
+        <div class="ds">Spacious, well-ventilated rooms with modern furniture for relaxed living.</div>
+      </div>
+      <div class="f">
+        <div class="ic">🛡️</div>
+        <div class="nm">24/7 Security</div>
+        <div class="ds">Round-the-clock CCTV surveillance and secured access for complete safety.</div>
+      </div>
+      <div class="f">
+        <div class="ic">📶</div>
+        <div class="nm">High-Speed Wi-Fi</div>
+        <div class="ds">Seamless internet to support your academics and collaborations.</div>
+      </div>
+      <div class="f">
+        <div class="ic">🍽️</div>
+        <div class="nm">Nutritious Food</div>
+        <div class="ds">Hygienic, wholesome meals served with variety and balanced nutrition.</div>
+      </div>
+      <div class="f">
+        <div class="ic">📚</div>
+        <div class="nm">Study Environment</div>
+        <div class="ds">Quiet study areas and reading rooms to help you focus and excel.</div>
+      </div>
+      <div class="f">
+        <div class="ic">🏸</div>
+        <div class="nm">Indoor &amp; Outdoor Recreation</div>
+        <div class="ds">Gym, sports facilities and indoor games for fitness and fun.</div>
+      </div>
+      <div class="f">
+        <div class="ic">🧺</div>
+        <div class="nm">Laundry Facility</div>
+        <div class="ds">Clean and convenient laundry services for hassle-free living.</div>
+      </div>
+      <div class="f">
+        <div class="ic">🏥</div>
+        <div class="nm">On-Campus Hospital</div>
+        <div class="ds">Free medical care at our on-campus hospital for all students.</div>
+      </div>
+    </div>
+
+    <div class="dotted-sep">
+      <span class="label">Hostel Accommodation</span>
+    </div>
+
+    <div class="capacity-row">
+      <div class="cap boys">
+        <div class="ic">👤</div>
+        <div>
+          <div class="lab">Boys Hostel</div>
+          <div class="num">1,200</div>
+          <div class="ss">Students</div>
+        </div>
+      </div>
+      <div class="cap girls">
+        <div class="ic">👤</div>
+        <div>
+          <div class="lab">Girls Hostel</div>
+          <div class="num">1,200</div>
+          <div class="ss">Students</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing-band">
+      <div class="left">BUILDING ENGINEERS.<br>BUILDING <span>TOMORROW.</span></div>
+      <div class="right">A supportive environment.<br>A better you. A brighter future.</div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>11 / 13 · HOSTEL FACILITIES</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 12 · HOW TO REACH US
+════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="body">
+    <div class="reach-hero" style="display:flex; justify-content:space-between; align-items:flex-end; gap:20px;">
+      <div>
+        <h1>How to <span class="or">Reach Us</span></h1>
+        <div class="pill-tab" style="margin-top:14px;">MLR Institute of Technology (MLRIT)</div>
+      </div>
+      <div class="tag">Nurturing Talent.<br><span class="or">Enabling Excellence.</span></div>
+    </div>
+
+    <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <!-- Left: about location -->
+      <div>
+        <div class="reach-info">
+          <p>MLRIT enjoys a <b>prime geographical location</b> with excellent connectivity by air, rail and road.</p>
+          <p>The campus is located in <b>Pundigal, Quthbullapur Mandal, Medchal–Malkajgiri District, Hyderabad</b>, adjacent to Outer Ring Road (ORR) Exit No. 5 (Medchal). This makes MLRIT easily accessible from all major parts of the city.</p>
+          <p>The institute is <b>20 kms</b> away from Secunderabad Railway Station, <b>11 km</b> from JNTUH (Kukatpally) and about <b>40 minutes' drive</b> from Rajiv Gandhi International Airport, Shamshabad.</p>
+        </div>
+
+        <!-- Directions card -->
+        <div class="directions-card" style="margin-top:14px;">
+          <div class="dotted-sep" style="margin:0 0 10px;">
+            <span class="label orange">📍 Directions</span>
+          </div>
+          <div class="dir-step">
+            <div class="ic">A</div>
+            <div class="info">Reach <b>Balanagar X Roads</b> — Take the road towards Medchal / Narsapur.</div>
+          </div>
+          <div class="dir-step">
+            <div class="ic">B</div>
+            <div class="info">Travel <b>14 kms</b> to reach Gandimaisamma X Roads.</div>
+          </div>
+          <div class="dir-step">
+            <div class="ic">C</div>
+            <div class="info">Head <b>03 kms towards Dundigal</b> to reach the Institute.</div>
+          </div>
+          <div class="dir-step">
+            <div class="ic">🏛</div>
+            <div class="info"><b>MLRIT Campus</b> · Dundigal, Quthbullapur Mandal, Medchal–Malkajgiri District, Hyderabad — 500 043, Telangana.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: bus routes + contact -->
+      <div>
+        <div class="bus-card">
+          <div class="dotted-sep" style="margin:0 0 8px;">
+            <span class="label green">🚌 How to get to MLRIT by Bus</span>
+          </div>
+          <p class="copy" style="font-size:11px; margin-bottom:8px;">Well connected by various bus routes from all over Hyderabad / Secunderabad.</p>
+          <div class="bus-row">
+            <div class="ic">🚌</div>
+            <div class="info"><b>Bus No. 230D</b> — 60 min from Chilakalaguda / Secunderabad Bus Station. TSRTC runs 26 daily trips towards Air Force Academy route.</div>
+          </div>
+          <div class="bus-row">
+            <div class="ic">🚌</div>
+            <div class="info"><b>Bus No. 230X</b> — 80 min from Kachigua Bus Station. TSRTC runs 6 daily trips towards Dundigal route.</div>
+          </div>
+          <div class="bus-row">
+            <div class="ic">🚌</div>
+            <div class="info"><b>Bus No. 83J / 230</b> — 120 min from Kachigua Bus Station. TSRTC runs 6 daily trips towards Dundigal route.</div>
+          </div>
+          <div class="bus-row">
+            <div class="ic">🚌</div>
+            <div class="info"><b>Bus No. 83M</b> — 80 min from Secunderabad Bus Station. TSRTC runs 5 daily trips from CBS towards Dundigal route.</div>
+          </div>
+        </div>
+
+        <div class="contact-card-12" style="margin-top:14px;">
+          <h3>Contact Us</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 16px;">
+            <div class="row">
+              <div class="ic">📞</div>
+              <div>
+                <div class="lb">Phone</div>
+                <div class="vl">9652226061</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ic">✉️</div>
+              <div>
+                <div class="lb">Email</div>
+                <div class="vl">info@mlrit.ac.in</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ic">🌐</div>
+              <div>
+                <div class="lb">Website</div>
+                <div class="vl" style="color:#FFE9A8;">www.mlrit.ac.in</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ic">📍</div>
+              <div>
+                <div class="lb">Toll Free</div>
+                <div class="vl">1800 572 4363</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR scan card -->
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:12px; margin-top:14px; align-items:center; background:var(--orange-tint); border:1px solid var(--orange-light); border-radius:var(--r-md); padding:12px 16px;">
+          <div>
+            <div class="label orange" style="margin-bottom:4px;">Location</div>
+            <div style="font-weight:800; font-size:14px; color:var(--ink); line-height:1.25;">Scan to Open Location</div>
+            <div style="font-size:11px; color:var(--gray-700); margin-top:2px;">Google Maps · Campus Directions</div>
+          </div>
+          <img src="data:image/jpeg;base64,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" alt="Scan to Open Location · Google Maps QR" style="width:78px; height:78px; object-fit:cover; border-radius:4px; display:block;" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <div><b>MLRIT</b> · PROSPECTUS 2026 / 27</div>
+    <div>12 / 13 · HOW TO REACH US</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 13 · BACK COVER
+════════════════════════════════════════════════════════════ -->
+<div class="page" id="back">
+  <div class="back-mid">
+    <div class="back-arrow">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M 8 32 L 32 8 M 32 8 L 18 8 M 32 8 L 32 22" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="find">Find out more:</div>
+        <div class="url">www.mlrit.ac.in</div>
+      </div>
+    </div>
+
+    <h1 class="back-name">
+      MLR Institute of<br>Technology
+      <span>(Autonomous)</span>
+    </h1>
+
+    <div class="back-tag">Nurturing Talent · Enabling Excellence</div>
+
+    <div class="back-info-grid">
+      <div class="back-info">
+        <div class="row">
+          <div class="lb">Address</div>
+          <div class="vl">
+            Dundigal, Hyderabad — 500 043,<br>
+            Telangana, India
+          </div>
+        </div>
+        <div class="row">
+          <div class="lb">Phone</div>
+          <div class="vl">
+            9652226061
+            <small>Toll-Free · 1800 572 4363</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="lb">Enquiries</div>
+          <div class="vl">info@mlrit.ac.in</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="label" style="color:#FFE9A8; margin-bottom:10px;">For More Info</div>
+        <div class="back-qr">
+          <img src="data:image/jpeg;base64,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" alt="For More Info QR" style="width:130px; height:130px; object-fit:cover; border-radius:var(--r-sm); display:block;" />
+        </div>
+      </div>
+    </div>
+
+    <div class="back-social">
+      <div class="si">f</div>
+      <div class="si">⊙</div>
+      <div class="si">𝕏</div>
+      <div class="si">in</div>
+      <div class="si">▶</div>
+    </div>
+  </div>
+
+  <div class="back-foot">
+    <div>MLR Institute of Technology · Autonomous</div>
+    <div>Prospectus 2026 / 27 · Edition Nº 21</div>
+  </div>
+</div>
+
+</body>
+</html>

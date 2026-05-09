@@ -38,8 +38,9 @@ export function Bento() {
         {/* Brochure */}
         <Reveal delay={60} className="md:col-span-2">
           <a
-            href="#"
-            download
+            href="/brochure.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex h-full flex-col justify-between rounded-3xl bg-gradient-to-br from-white to-[#FFF3E8] p-6 shadow-soft transition-transform active:scale-[0.992] md:min-h-[180px]"
           >
             <div>
@@ -47,7 +48,7 @@ export function Bento() {
                 <Download className="h-5 w-5" />
               </div>
               <div className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                PDF · 4.2 MB
+                Brochure
               </div>
               <h3 className="mt-1 font-display text-[22px] font-semibold tracking-tight">
                 Download Brochure
